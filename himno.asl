@@ -15,18 +15,15 @@ init {
     });
 }
 
-start
-{
-    return (vars.Helper["InRun"].Old == false && vars.Helper["InRun"].Current == true && vars.Helper["District"].Current == 1);
+start {
+    return vars.Helper["InRun"].Old == false && vars.Helper["InRun"].Current == true && vars.Helper["District"].Current == 1;
 }
 
-split
-{
-    return (vars.Helper["District"].Current == 12 && vars.Helper["District"].Old == 11);
+split {
+    return vars.Helper["District"].Current == 12 && vars.Helper["District"].Old == 11;
 }
 
-reset
-{
-    return ((vars.Helper["InRun"].Old == true && vars.Helper["InRun"].Current == false) &&
-                vars.Helper["District"].Current == 1);
+reset {
+    return (vars.Helper["InRun"].Old == true && vars.Helper["InRun"].Current == false) &&
+                vars.Helper["District"].Current == 1;
 }
