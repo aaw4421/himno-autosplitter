@@ -15,14 +15,9 @@ init {
     });
 }
 
-update
-{
-    return (vars.Helper["District"].Old != vars.Helper["District"].Current);
-}
-
 start
 {
-    return (vars.Helper["InRun"].Old == false && vars.Helper["InRun"].Current == true);
+    return (vars.Helper["InRun"].Old == false && vars.Helper["InRun"].Current == true && vars.Helper["District"].Current == 1);
 }
 
 split
@@ -35,4 +30,3 @@ reset
     return ((vars.Helper["InRun"].Old == true && vars.Helper["InRun"].Current == false) &&
                 vars.Helper["District"].Current == 1);
 }
-
