@@ -16,14 +16,13 @@ init {
 }
 
 start {
-    return vars.Helper["InRun"].Old == false && vars.Helper["InRun"].Current == true && vars.Helper["District"].Current == 1;
+    return !old.InRun && current.InRun && current.District == 1;
 }
 
 split {
-    return vars.Helper["District"].Current == 12 && vars.Helper["District"].Old == 11;
+    return current.District == 12 && old.District == 11;
 }
 
 reset {
-    return (vars.Helper["InRun"].Old == true && vars.Helper["InRun"].Current == false) &&
-                vars.Helper["District"].Current == 1;
+    return old.InRun && !current.InRun && current.District == 1;
 }
